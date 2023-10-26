@@ -14,6 +14,20 @@
 
     <!--==================== CSS ====================-->
     <link rel="stylesheet" href="/assets/css/styles.css" />
+    <!--==================== Alert CSS ====================-->
+    <link rel="stylesheet" href="assets/css/sweetalert2.min.css" />
+    <!--==================== Alert JS ====================-->
+    <script src="assets/js/sweetalert2.all.min.js"></script>
+    <!-- ================= Email Message ============================ -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init("qzhZca4-HupLu9o8N");
+      })();
+    </script>
 
     <title>Muhammad Ashfa</title>
   </head>
@@ -134,7 +148,7 @@
                   href=""
                   class="typewrite home__subtitle"
                   data-period="2000"
-                  data-type='[ "Web Developer", "Web Designer", "Video Edtor", "Design Graphic","Film Maker" ]'
+                  data-type='[ "Web Developer", "Web Designer", "Video Edi  tor", "Design Graphic","Film Maker" ]'
                 >
                   <span class="wrap"></span>
                 </a>
@@ -176,14 +190,9 @@
                 </p>
               </div>
             </div>
-            <div class="about__button">
-              <a
-                href="assets/pdf/ashfaCV.pdf"
-                class="button button-flex"
-                target="_blank"
-                >See CV<i class="uil uil-eye button__icon"></i
-              ></a>
-            </div>
+            <button onclick="window.open('assets/pdf/AshfaCV.pdf', '_blank');">
+              SEE <i class="uil uil-eye"></i>
+            </button>
           </div>
         </div>
       </section>
@@ -781,7 +790,7 @@
       <!--==================== CONTACT ME ====================-->
       <section class="contact section" id="contact">
         <div class="section__title">Contact Me</div>
-        <span class="section__subtitle">You Can Massage Me</span>
+        <span class="section__subtitle">You Can Message Me</span>
 
         <div class="contact__container container grid">
           <div>
@@ -807,25 +816,24 @@
           <div class="__ _body">
             <div class="form__body">
               <div class="form__container">
-                <h3>Massage Me</h3>
+                <h3>Contact Me</h3>
                 <form action="" class="contact__form">
-                  <input type="text" placeholder="Your Name" required />
+                  <input id="name" type="text" placeholder="Your Name" />
                   <input
+                    id="email"
                     type="email"
-                    placeholder="Enter Your Email..."
-                    required
+                    placeholder="Enter Your Email"
                   />
+                  <input id="subject" type="text" placeholder="Type Subject " />
                   <textarea
                     name=""
-                    id=""
+                    id="message"
                     cols="30"
                     rows="10"
-                    placeholder="Type Massage Here"
+                    placeholder="Type Message Here"
                   ></textarea>
                 </form>
-                <button
-                  onclick="window.location.href = 'mailto:muhammadashfa2006@gmail.com'"
-                >
+                <button onclick="sendMail(),callAlert()">
                   <div class="svg-wrapper-1">
                     <div class="svg-wrapper">
                       <svg
@@ -859,6 +867,12 @@
         </div>
       </section>
     </main>
+    <!--==================== alert ====================-->
+    <script>
+      function callAlert() {
+        Swal.fire("Success", "Your Message Success Send", "success");
+      }
+    </script>
     <!--==================== SWIPER JS ====================-->
     <script src="assets/js/swiper-bundle.min.js"></script>
 
